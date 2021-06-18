@@ -26,9 +26,9 @@ public class DistilleryController {
 
     @GetMapping("/distilleries/{id}")
     ResponseEntity<Distillery> one(@PathVariable int id) {
-        Optional<Distillery> region = this.repository.findById(id);
+        Optional<Distillery> distillery = this.repository.findById(id);
 
-        return region.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
+        return distillery.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
     }
 }
