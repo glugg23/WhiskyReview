@@ -6,12 +6,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value = "/api/whiskies")
 public class WhiskyController {
     private final WhiskyRepository repository;
 
@@ -19,12 +21,12 @@ public class WhiskyController {
         this.repository = repository;
     }
 
-    @GetMapping("/whiskies")
+    @GetMapping
     List<Whisky> all() {
         return repository.findAll();
     }
 
-    @GetMapping("/whiskies/{id}")
+    @GetMapping("/{id}")
     ResponseEntity<Whisky> one(@PathVariable int id) {
         Optional<Whisky> whisky = this.repository.findById(id);
 
