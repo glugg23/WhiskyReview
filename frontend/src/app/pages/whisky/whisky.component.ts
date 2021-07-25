@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { WhiskyService } from "../../core/services/whisky.service";
+import { Whisky } from "../../models/whisky.model";
 
 @Component({
     selector: 'app-whisky',
@@ -7,7 +8,7 @@ import { WhiskyService } from "../../core/services/whisky.service";
     styleUrls: ['./whisky.component.scss']
 })
 export class WhiskyComponent implements OnInit {
-    whiskies: any[] = [];
+    whiskies: Whisky[] = [];
 
     constructor(private whiskyService: WhiskyService) {
     }
@@ -18,7 +19,7 @@ export class WhiskyComponent implements OnInit {
 
     fetchWhiskies() {
         this.whiskyService.getAllWhiskies().subscribe((data) => {
-            this.whiskies = data.map((d: any) => JSON.stringify(d));
+            this.whiskies = data;
         });
     }
 }

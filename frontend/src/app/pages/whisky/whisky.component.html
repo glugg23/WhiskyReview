@@ -1,1 +1,8 @@
-<p *ngFor="let w of whiskies">{{w}}</p>
+<ul>
+    <li *ngFor="let w of whiskies">
+        {{w.distillery.name}}
+        <span *ngIf="w.age != null">{{w.age}} Year Old</span>
+        {{w.distillery.region?.name}} {{w.type.name}} {{w.country.name}}
+        <span *ngIf="w.name != null">"{{w.name}}"</span>
+    </li>
+</ul>
