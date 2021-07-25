@@ -1,0 +1,2 @@
+ALTER TABLE whiskies
+    ADD COLUMN name VARCHAR;

@@ -34,7 +34,10 @@ public class Whisky {
     private Country country;
     @Getter
     @Setter
-    private int age;
+    private Integer age;
+    @Getter
+    @Setter
+    private String name;
 
     @Override
     public boolean equals(Object o) {
