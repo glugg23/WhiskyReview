@@ -10,6 +10,9 @@ export class Whisky {
     public age?: number;
     public name?: string;
 
+    public title: string = "";
+    public subtitle: string = "";
+
     constructor(id: number, distillery: Distillery, type: Type, country: Country, age?: number, name?: string) {
         this.id = id;
         this.distillery = distillery;

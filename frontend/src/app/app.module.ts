@@ -13,6 +13,7 @@ import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { WhiskyComponent } from './pages/whisky/whisky.component';
+import { NzCardModule } from "ng-zorro-antd/card";
 
 registerLocaleData(en);
 
@@ -29,7 +30,8 @@ registerLocaleData(en);
         BrowserAnimationsModule,
         IconsProviderModule,
         NzLayoutModule,
-        NzMenuModule
+        NzMenuModule,
+        NzCardModule
     ],
     providers: [{provide: NZ_I18N, useValue: en_GB}],
     bootstrap: [AppComponent]
