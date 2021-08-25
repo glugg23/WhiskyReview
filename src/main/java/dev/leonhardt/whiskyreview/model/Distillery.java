@@ -16,6 +16,7 @@ import java.util.Objects;
 public class Distillery {
     @Id
     @Getter
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Getter
     @Setter
