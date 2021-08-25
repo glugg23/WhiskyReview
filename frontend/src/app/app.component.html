@@ -6,17 +6,18 @@
               nzCollapsible
               nzWidth="256px">
         <div class="sidebar-logo">
-            <a href="https://ng.ant.design/" target="_blank">
-                <img alt="logo" src="https://ng.ant.design/assets/img/logo.svg">
-                <h1>Ant Design Of Angular</h1>
+            <a routerLink="/">
+                <i nz-icon nzTheme="fill" nzType="heart"></i>
+                <h1>Whisky Review</h1>
             </a>
         </div>
         <ul [nzInlineCollapsed]="isCollapsed" nz-menu nzMode="inline" nzTheme="dark">
-            <li nz-menu-item nzMatchRouterExact>
-                <a routerLink="/">Home</a>
-            </li>
-            <li nz-menu-item nzMatchRouterExact>
-                <a routerLink="/whiskies">Whiskies</a>
+            <li nz-submenu nzIcon="info-circle" nzOpen="true" nzTitle="View">
+                <ul>
+                    <li nz-menu-item nzMatchRouter>
+                        <a routerLink="/whiskies">Whiskies</a>
+                    </li>
+                </ul>
             </li>
         </ul>
     </nz-sider>
