@@ -3,15 +3,17 @@ package dev.leonhardt.whiskyreview.controller;
 import dev.leonhardt.whiskyreview.model.Distillery;
 import dev.leonhardt.whiskyreview.repository.DistilleryRepository;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 import java.util.Optional;
 
 @RestController
+@RequestMapping(value = "/api/distilleries")
 public class DistilleryController {
     private final DistilleryRepository repository;
 
@@ -19,16 +21,14 @@ public class DistilleryController {
         this.repository = repository;
     }
 
-    @GetMapping("/distilleries")
+    @GetMapping
     List<Distillery> all() {
         return this.repository.findAll();
     }
 
-    @GetMapping("/distilleries/{id}")
-    ResponseEntity<Distillery> one(@PathVariable int id) {
+    @GetMapping("{id}")
+    Distillery one(@PathVariable int id) {
         Optional<Distillery> distillery = this.repository.findById(id);
-
-        return distillery.map(value -> new ResponseEntity<>(value, HttpStatus.OK))
-                .orElseGet(() -> new ResponseEntity<>(HttpStatus.BAD_REQUEST));
+        return distillery.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 }
