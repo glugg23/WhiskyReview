@@ -18,7 +18,7 @@ export class WhiskyComponent implements OnInit {
     }
 
     fetchWhiskies() {
-        this.whiskyService.getAllWhiskies().subscribe((data) => {
+        this.whiskyService.all().subscribe(data => {
             this.whiskies = data.map((w: Whisky) => {
                 let ageText = w.age != null ? ` ${w.age} Year Old` : '';
                 let subtitleRegion = w.distillery.region != null ? `${w.distillery.region.name} ` : '';

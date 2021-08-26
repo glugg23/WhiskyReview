@@ -10,17 +10,25 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
+
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
-import { WhiskyComponent } from './pages/whisky/whisky.component';
 import { NzCardModule } from "ng-zorro-antd/card";
+import { NzFormModule } from "ng-zorro-antd/form";
+import { NzInputModule } from "ng-zorro-antd/input";
+import { NzSelectModule } from "ng-zorro-antd/select";
+import { NzButtonModule } from "ng-zorro-antd/button";
+
+import { WhiskyComponent } from './pages/whisky/whisky.component';
+import { AddDistilleryComponent } from './pages/add-distillery/add-distillery.component';
 
 registerLocaleData(en);
 
 @NgModule({
     declarations: [
         AppComponent,
-        WhiskyComponent
+        WhiskyComponent,
+        AddDistilleryComponent
     ],
     imports: [
         BrowserModule,
@@ -31,7 +39,11 @@ registerLocaleData(en);
         IconsProviderModule,
         NzLayoutModule,
         NzMenuModule,
-        NzCardModule
+        NzCardModule,
+        NzFormModule,
+        NzInputModule,
+        NzSelectModule,
+        NzButtonModule
     ],
     providers: [{provide: NZ_I18N, useValue: en_GB}],
     bootstrap: [AppComponent]

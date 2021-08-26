@@ -5,8 +5,8 @@ import { Observable } from "rxjs";
 @Injectable({
     providedIn: 'root'
 })
-export class WhiskyService {
-    private endpoint: string = '/api/whiskies';
+export class RegionService {
+    private endpoint: string = '/api/regions';
 
     constructor(private http: HttpClient) {
     }

@@ -1,0 +1,21 @@
+<form nz-form>
+    <nz-form-item>
+        <nz-form-label nzFor="name" nzRequired>Name</nz-form-label>
+        <nz-form-control>
+            <input id="name" nz-input/>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-label nzFor="region">Region</nz-form-label>
+        <nz-form-control>
+            <nz-select nzAllowClear nzPlaceHolder="None" nzShowSearch>
+                <nz-option *ngFor="let r of regions" nzLabel="{{r.name}}" nzValue="{{r.id}}"></nz-option>
+            </nz-select>
+        </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+        <nz-form-control>
+            <button nz-button nzType="primary">Add</button>
+        </nz-form-control>
+    </nz-form-item>
+</form>
